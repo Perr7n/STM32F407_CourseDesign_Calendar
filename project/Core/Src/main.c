@@ -27,6 +27,8 @@
 /* USER CODE BEGIN Includes */
 #include "lvgl.h"
 #include "lv_port_disp_template.h"
+#include "gui_guider.h"
+#include "events_init.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,7 +48,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+lv_ui guider_ui;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -95,6 +97,11 @@ int main(void)
   // LVGL初始化
   lv_init();
   lv_port_disp_init();
+
+  HAL_TIM_Base_Start_IT(&htim9);
+
+  setup_ui(&guider_ui);
+  events_init(&guider_ui);
   /* USER CODE END 2 */
 
   /* Infinite loop */
