@@ -29,4 +29,11 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>TFT_LCD</name>
+			<type>2</type>
+			<location>D:/data/OneDrive/stm32dev/projects/PublicDrivers/TFT_LCD</location>
+		</link>
+	</linkedResources>
 </projectDescription>

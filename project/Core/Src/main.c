@@ -25,7 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "tftlcd.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -91,6 +91,7 @@ int main(void)
   MX_RTC_Init();
   MX_TIM9_Init();
   /* USER CODE BEGIN 2 */
+  TFTLCD_Init();
 
   /* USER CODE END 2 */
 
