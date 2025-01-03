@@ -25,7 +25,10 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "tftlcd.h"
+//#include "tftlcd.h"
+#include "lvgl.h"
+#include "lv_port_disp_template.h"
+#include "lv_demo_widgets.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -91,8 +94,12 @@ int main(void)
   MX_RTC_Init();
   MX_TIM9_Init();
   /* USER CODE BEGIN 2 */
-  TFTLCD_Init();
-
+//  TFTLCD_Init();
+//  LCD_Fill(0, 0, 480, 800, BLACK);
+//  LCD_ShowNum(20, 20, 320, 4, 24);
+  lv_init();
+  lv_port_disp_init();
+  lv_demo_widgets();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -102,6 +109,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  lv_timer_handler();
   }
   /* USER CODE END 3 */
 }
@@ -153,7 +161,13 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  if(htim->Instance == TIM9)
+  {
+    lv_tick_inc(1);
+  }
+}
 /* USER CODE END 4 */
 
 /**
